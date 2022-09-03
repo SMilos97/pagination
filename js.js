@@ -107,3 +107,62 @@ function nextPage() {
 
 
 }
+
+let numberPaginacija = document.querySelectorAll('.number');
+
+numberPaginacija.forEach(elem=>{
+    elem.addEventListener('click', paginacijaFnc)
+})
+
+function paginacijaFnc() {
+    let numberLastPage = parseInt(coinsData.length / pagseSize);
+    let number = this.innerHTML;
+    curPage = parseInt(number);
+    if(curPage<3){
+        firstNumber.innerHTML = 1;
+        secondNumber.innerHTML = 2;
+        thirdNumber.innerHTML = 3;
+        fourthNumber.innerHTML = 4;
+        fifthNumber.innerHTML = 5;
+    }else if(curPage>=(numberLastPage-2)){
+        firstNumber.innerHTML = numberLastPage-4;
+        secondNumber.innerHTML = numberLastPage-3;
+        thirdNumber.innerHTML = numberLastPage-2;
+        fourthNumber.innerHTML = numberLastPage-1;
+        fifthNumber.innerHTML = numberLastPage;
+    }else{
+        firstNumber.innerHTML = curPage - 2;
+        secondNumber.innerHTML = curPage - 1;
+        thirdNumber.innerHTML = curPage;
+        fourthNumber.innerHTML = curPage + 1;
+        fifthNumber.innerHTML = curPage + 2;
+    }
+    rendertable(curPage);
+}
+
+
+firstPage.addEventListener('click',()=>{
+
+curPage = 1 ;
+
+        firstNumber.innerHTML = curPage;
+        secondNumber.innerHTML = curPage + 1;
+        thirdNumber.innerHTML = curPage + 2;
+        fourthNumber.innerHTML = curPage + 3;
+        fifthNumber.innerHTML = curPage + 4;
+
+rendertable(curPage);
+})
+
+
+lastPage.addEventListener('click',()=>{
+
+curPage = Math.ceil(coinsData.length / pagseSize);
+        firstNumber.innerHTML = curPage - 4;
+        secondNumber.innerHTML = curPage - 3;
+        thirdNumber.innerHTML = curPage - 2;
+        fourthNumber.innerHTML = curPage - 1;
+        fifthNumber.innerHTML = curPage;
+
+rendertable(curPage);
+});

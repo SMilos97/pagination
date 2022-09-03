@@ -1,2 +1,2 @@
 # pagination
-pagination in js,htm,css
+pagination in js
