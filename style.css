@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: chocolate;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+#container{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+.pagination a{
+    text-decoration:none;
+    color: black;
+    font-size: 30px;  
+}
+.pagination li{
+    display: inline-block;
+    background: #eee;
+    border: 1px solid silver;
+    padding: 10px;
+    border-radius: 10px;
+}
+.pagination li:hover{
+    background-color: darkslateblue;
+}
