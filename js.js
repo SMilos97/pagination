@@ -79,3 +79,31 @@ if (curPage > 1) {
 rendertable(curPage);
 
 }
+
+document.getElementById("next").addEventListener("click", nextPage);
+
+
+function nextPage() {
+    let numberLastPage = parseInt(coinsData.length / pagseSize);
+    
+    if ((curPage * pagseSize) < coinsData.length) {
+        curPage++;
+        if(curPage > 3 && curPage < 8){
+            firstNumber.innerHTML = curPage-2;
+            secondNumber.innerHTML = curPage-1;
+            thirdNumber.innerHTML = curPage;
+            fourthNumber.innerHTML = curPage+1;
+            fifthNumber.innerHTML = curPage+2;
+        }
+        if(curPage >=(numberLastPage-2)){
+            firstNumber.innerHTML = numberLastPage-4;
+            secondNumber.innerHTML = numberLastPage-3;
+            thirdNumber.innerHTML = numberLastPage-2;
+            fourthNumber.innerHTML = numberLastPage-1;
+            fifthNumber.innerHTML = numberLastPage;
+        }
+        rendertable(curPage);
+    }
+
+
+}
